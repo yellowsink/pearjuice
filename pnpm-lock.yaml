@@ -1,0 +1,46 @@
+lockfileVersion: 5.4
+
+specifiers:
+  '@gluon-framework/gluon': ^5.1.0
+
+dependencies:
+  '@gluon-framework/gluon': 5.1.0
+
+packages:
+
+  /@gluon-framework/gluon/5.1.0:
+    resolution: {integrity: sha512-RQWuzfkv1r4YE+zv8LtWv7rTLjSQEQ933ndv5+eF/QwB0LAMzL/0hL//KoKyKYfw02ygig+HFuiopFNlFDSSAQ==}
+    dependencies:
+      chrome-remote-interface: 0.31.3
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+    dev: false
+
+  /chrome-remote-interface/0.31.3:
+    resolution: {integrity: sha512-NTwb1YNPHXLTus1RjqsLxJmdViKwKJg/lrFEcM6pbyQy04Ow2QKWHXyPpxzwE+dFsJghWuvSAdTy4W0trluz1g==}
+    hasBin: true
+    dependencies:
+      commander: 2.11.0
+      ws: 7.5.9
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+    dev: false
+
+  /commander/2.11.0:
+    resolution: {integrity: sha512-b0553uYA5YAEGgyYIGYROzKQ7X5RAqedkfjiZxwi0kL1g3bOaBNNZfYkzt/CL0umgD5wc9Jec2FbB98CjkMRvQ==}
+    dev: false
+
+  /ws/7.5.9:
+    resolution: {integrity: sha512-F+P9Jil7UiSKSkppIiD94dN07AwvFixvLIj1Og1Rl9GGMuNipJnV9JzjD6XuqmAeiswGvUmNLjr5cFuXwNS77Q==}
+    engines: {node: '>=8.3.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: ^5.0.2
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+    dev: false

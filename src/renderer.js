@@ -7,6 +7,7 @@ export default () => {
 		parent.innerHTML = str;
 		const child = parent.firstElementChild;
 		parent.replaceChildren();
+
 		return child;
 	}
 

@@ -4,7 +4,7 @@ specifiers:
   '@gluon-framework/gluon': github:gluon-framework/gluon
 
 dependencies:
-  '@gluon-framework/gluon': github.com/gluon-framework/gluon/641b37895db449964aec1ae8a3ed4a9af08ad40d
+  '@gluon-framework/gluon': github.com/gluon-framework/gluon/007cf2d032447bde6599008e80280f2a1ae06c49
 
 packages:
 
@@ -21,8 +21,8 @@ packages:
         optional: true
     dev: false
 
-  github.com/gluon-framework/gluon/641b37895db449964aec1ae8a3ed4a9af08ad40d:
-    resolution: {tarball: https://codeload.github.com/gluon-framework/gluon/tar.gz/641b37895db449964aec1ae8a3ed4a9af08ad40d}
+  github.com/gluon-framework/gluon/007cf2d032447bde6599008e80280f2a1ae06c49:
+    resolution: {tarball: https://codeload.github.com/gluon-framework/gluon/tar.gz/007cf2d032447bde6599008e80280f2a1ae06c49}
     name: '@gluon-framework/gluon'
     version: 0.6.0
     dependencies:

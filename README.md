@@ -24,3 +24,4 @@ we're Cider fans here :p
 ## TODO
  - show notice to set region if unset
  - implement the whole caching thing
+ - Figure out a way to make IPC work on Firefox (or just scream @ Ducko)

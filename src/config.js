@@ -25,12 +25,7 @@ const save = () => writeFile(cfgPath, JSON.stringify(config));
 
 export const get = k => config[k];
 
-export async function set(k, v) {
-	config[k] = v;
-	await save();
-}
-
-export async function batchSet(obj) {
+export async function set(obj) {
 	Object.assign(config, obj);
 	await save();
 }

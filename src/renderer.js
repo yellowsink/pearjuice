@@ -15,8 +15,7 @@ export default () => {
 	}
 
 	const cfgGet = async (k) => Gluon.ipc.send("config get", k);
-	//const cfgSet = async (k, v) => Gluon.ipc.send("config set", [k, v]);
-	const cfgBatchSet = async (o) => Gluon.ipc.send("config batch set", o);
+	const cfgSet = async (o) => Gluon.ipc.send("config set", o);
 
 	const getCss = async () => Gluon.ipc.send("get css");
 	const getUrl = async () => Gluon.ipc.send("get url");
@@ -87,7 +86,7 @@ export default () => {
 					conf[item[0]] = isCheckbox ? elem.checked : elem.value;
 			}
 
-			await cfgBatchSet(conf);
+			await cfgSet(conf);
 
 			const newUrl = await getUrl();
 			if (location.href.match(/.*\.com\/.+?(?=\/|$)/)[0] !== newUrl)

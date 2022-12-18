@@ -1,7 +1,7 @@
 import * as Gluon from "@gluon-framework/gluon";
 import onLoad from "./renderer.js";
 import css from "./css.js";
-import { batchSet, get, load, set } from "./config.js";
+import { set, get, load } from "./config.js";
 import icons from "./icons.js";
 import { ensureWidevine } from "./widevine.js";
 
@@ -19,6 +19,5 @@ const getUrl = () => `https://${get("beta") ? "beta." : ""}music.apple.com/${get
 	Window.ipc.on("get icon", (k) => btoa(icons[k]));
 
 	Window.ipc.on("config get", get);
-	//Window.ipc.on("config set", ([k, v]) => set(k, v));
-	Window.ipc.on("config batch set", batchSet);
+	Window.ipc.on("config set", set);
 })();

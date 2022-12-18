@@ -13,7 +13,7 @@ export default () => {
 	addEventListener("load", () => Gluon.ipc.send("renderer ready"));
 
 	Gluon.ipc.on("inject css", ({ css }) => {
-		document.head.append(template(`<style>${css}</style>`))
+		document.head.append(template(`<style>${css}</style>`));
 	});
 
 }

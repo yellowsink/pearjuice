@@ -11,18 +11,16 @@ You should probably evaluate if https://cider.sh is a good solution for you too,
 we're Cider fans here :p
 
 ## Advantages
- - *should* work well consistently
- - light
- - additional caching for a snappy startup
+ - works well consistently
+ - lightweight
  - a couple of ui tweaks
+
+[//]: # ( - additional caching for a snappy startup)
 
 ## Disadvantages
  - playback on slow connections can break more readily than Cider, note this is an issue with the AM webapp not pearjuice
  - no fancy features that Cider has (yet!)
 
 ## TODO
- - figure out IPC issues
- - config file to store region
- - remove region banner
  - show notice to set region if unset
  - implement the whole caching thing

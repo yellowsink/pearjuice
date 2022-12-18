@@ -1,6 +1,11 @@
 export default `
+/* hide annoyances */
 .navigation__native-cta, .banner-container { display: none }
 
+/* visual rebalance of logo pos */
+.logo-container > .logo { padding-top: 20px }
+
+/* modal styles */
 .pj-modal-root {
 	position: fixed;
 	left: 0;

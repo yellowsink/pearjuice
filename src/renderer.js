@@ -96,6 +96,11 @@ export default () => {
 
 	// END utilities
 
+	// firefox users
+	window.pearjuice = {
+		config: showModal
+	};
+
 	addEventListener("load", () => {
 		getCss().then(injectCss);
 

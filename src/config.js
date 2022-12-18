@@ -14,6 +14,7 @@ const cfgPath = resolve(
 const config = {
 	region: "us",
 	beta: false,
+	onboarded: false
 };
 
 export async function load() {

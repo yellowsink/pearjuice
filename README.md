@@ -22,6 +22,8 @@ we're Cider fans here :p
  - no fancy features that Cider has (yet!)
 
 ## TODO
- - show notice to set region if unset
- - implement the whole caching thing
+
+[//]: # ( - implement the whole caching thing )
+
  - Figure out a way to make IPC work on Firefox (or just scream @ Ducko)
+ - Add theme choosing (`Emulation.setAutoDarkModeOverride`)

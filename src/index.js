@@ -6,9 +6,11 @@ import { load, get, set } from "./config.js";
 (async () => {
 	await load();
 
-	const url = `https://${get("beta") ? 'beta.' : ''}music.apple.com/${get("region")}`;
+	const url = `https://${get("beta") ? "beta." : ""}music.apple.com/${get("region")}`;
 
-	const Window = await Gluon.open(url, { onLoad });
+	const Window = await Gluon.open(url, {
+		onLoad
+	});
 
 	Window.ipc.on("get css", () => css);
 	Window.ipc.on("config get", get);

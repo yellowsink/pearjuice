@@ -29,3 +29,8 @@ export async function set(k, v) {
 	config[k] = v;
 	await save();
 }
+
+export async function batchSet(obj) {
+	Object.assign(config, obj);
+	await save();
+}

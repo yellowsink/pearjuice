@@ -11,10 +11,17 @@ export default () => {
 		return child;
 	}
 
-	addEventListener("load", () => Gluon.ipc.send("renderer ready"));
-
-	Gluon.ipc.on("inject css", ({ css }) => {
+	function injectCss(css) {
 		document.head.append(template(`<style>${css}</style>`));
+	}
+
+	const cfgGet = async (k) => Gluon.ipc.send("config get", k);
+	const cfgSet = async (k, v) => Gluon.ipc.send("config set", [k, v]);
+
+
+
+	addEventListener("load", () => {
+		Gluon.ipc.send("get css").then(injectCss);
 	});
 
 }

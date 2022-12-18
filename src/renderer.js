@@ -22,7 +22,7 @@ export default () => {
 	const getIcon = async (i) => Gluon.ipc.send("get icon", i);
 
 	async function until(condition) {
-		while (!condition()) {
+		while (!(await condition())) {
 			// noinspection JSCheckFunctionSignatures
 			await new Promise(setTimeout);
 		}
@@ -30,7 +30,7 @@ export default () => {
 	}
 
 	const modalItems = [
-		["region", "Apple Music Region", "text"],
+		//["region", "Apple Music Region", "text"],
 		["beta", "Opt-in to AM Beta", "checkbox"]
 	]
 
@@ -108,6 +108,8 @@ export default () => {
 		autoSignIn();
 		// noinspection JSIgnoredPromiseFromCall
 		accountContextMenu();
+		// noinspection JSIgnoredPromiseFromCall
+		autoRegion();
 	});
 
 	// START tweaks
@@ -149,6 +151,19 @@ export default () => {
 			mutObs.observe(cmContainer, {
 				childList: true,
 			});
+		}
+	}
+
+	async function autoRegion() {
+		const mkInstance = await until(() => MusicKit.getInstance());
+
+		await until(() => mkInstance.me());
+
+		const accountInfo = await mkInstance.me();
+
+		if (accountInfo.subscription.storefront !== await cfgGet("region")) {
+			await cfgSet({region: accountInfo.subscription.storefront});
+			location = await getUrl();
 		}
 	}
 };

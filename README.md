@@ -27,3 +27,4 @@ we're Cider fans here :p
 
  - Figure out a way to make IPC work on Firefox (or just scream @ Ducko)
  - Add theme choosing (`Emulation.setAutoDarkModeOverride`)
+ - Add notifs

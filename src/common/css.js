@@ -45,7 +45,7 @@ button.pj-modal-close {
 	border: none;
 }
 
-.pj-modal-content {
+.pj-settings {
 	padding: .75rem;
 	display: grid;
 	grid-template-columns: max-content auto;

@@ -13,5 +13,8 @@ export default () =>
 			resolve();
 		});
 
+		// #duckoplsfix
+		await new Promise(res => setTimeout(res, 1000));
+
 		await injectCommon(Window);
 	});

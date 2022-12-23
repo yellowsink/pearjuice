@@ -99,7 +99,10 @@
 <script>
 	(async () => {
 
-		debugger;
+		while (!window.Gluon) {
+			// noinspection JSCheckFunctionSignatures
+			await new Promise(setTimeout);
+		}
 
 		let idx = 0;
 
@@ -124,14 +127,14 @@
 		for (const elem of document.querySelectorAll(".finishbtn"))
 			elem.onclick = () => Gluon.ipc.send("onboarding complete");
 
-		while (!window.pj) {
+		while (!window.pj?.getSettings) {
 			// noinspection JSCheckFunctionSignatures
 			await new Promise(setTimeout);
 		}
 
 		const [settings, flushSettings] = await pj.getSettings();
 
-		document.getElementById("settings-placeholder").append(settings);
+		document.getElementById("settings-wrap").append(settings);
 
 		for (const input of settings.querySelector("input"))
 			input.onchange = flushSettings;

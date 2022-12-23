@@ -7,10 +7,10 @@ import settings from "./settings.js";
 export const getUrl = () => `https://${get("beta") ? "beta." : ""}music.apple.com/${get("region")}`;
 
 async function evalIn(Window, src) {
-	const expression = typeof src === 'string' ? src : `(${src.toString()})()`;
+	const expr = typeof src === 'string' ? src : `(${src.toString()})()`;
 
-	await Window.cdp.send(`Runtime.evaluate`, { expression });
-	await Window.cdp.send("Page.addScriptToEvaluateOnNewDocument", { source: expression });
+	await Window.cdp.send(`Runtime.evaluate`, { expression: expr });
+	await Window.cdp.send("Page.addScriptToEvaluateOnNewDocument", { source: expr });
 }
 
 export default async (Window) => {

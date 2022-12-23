@@ -5,7 +5,7 @@ specifiers:
   unzipper: ^0.10.11
 
 dependencies:
-  '@gluon-framework/gluon': github.com/gluon-framework/gluon/007cf2d032447bde6599008e80280f2a1ae06c49
+  '@gluon-framework/gluon': github.com/gluon-framework/gluon/905db965b5683c4e8def368b705b769ef7a103ce
   unzipper: 0.10.11
 
 packages:
@@ -220,10 +220,10 @@ packages:
         optional: true
     dev: false
 
-  github.com/gluon-framework/gluon/007cf2d032447bde6599008e80280f2a1ae06c49:
-    resolution: {tarball: https://codeload.github.com/gluon-framework/gluon/tar.gz/007cf2d032447bde6599008e80280f2a1ae06c49}
+  github.com/gluon-framework/gluon/905db965b5683c4e8def368b705b769ef7a103ce:
+    resolution: {tarball: https://codeload.github.com/gluon-framework/gluon/tar.gz/905db965b5683c4e8def368b705b769ef7a103ce}
     name: '@gluon-framework/gluon'
-    version: 0.6.0
+    version: 0.7.0
     dependencies:
       ws: 8.11.0
     transitivePeerDependencies:

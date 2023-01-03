@@ -1,14 +1,23 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@gluon-framework/gluon': github:gluon-framework/gluon
+  '@gluon-framework/gluon': ^0.8.0
   unzipper: ^0.10.11
 
 dependencies:
-  '@gluon-framework/gluon': github.com/gluon-framework/gluon/905db965b5683c4e8def368b705b769ef7a103ce
+  '@gluon-framework/gluon': 0.8.0
   unzipper: 0.10.11
 
 packages:
+
+  /@gluon-framework/gluon/0.8.0:
+    resolution: {integrity: sha512-fd3VR7fPQtTGhHIeQmD0oYL9SpvnbIpQ2qtWFXuHtm4jNGCj8FMvNhqB34c7aA5Tn48uqnLTQ9VNiV+hp/l4YQ==}
+    dependencies:
+      ws: 8.11.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+    dev: false
 
   /balanced-match/1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -218,15 +227,4 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
-    dev: false
-
-  github.com/gluon-framework/gluon/905db965b5683c4e8def368b705b769ef7a103ce:
-    resolution: {tarball: https://codeload.github.com/gluon-framework/gluon/tar.gz/905db965b5683c4e8def368b705b769ef7a103ce}
-    name: '@gluon-framework/gluon'
-    version: 0.7.0
-    dependencies:
-      ws: 8.11.0
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
     dev: false

@@ -13,7 +13,9 @@ we're Cider fans here :p
 ## Advantages
  - works well consistently
  - lightweight
- - a couple of ui tweaks
+ - some ui improvements
+   * context menus open on right click
+   * in-UI navigation
 
 [//]: # ( - additional caching for a snappy startup)
 
@@ -28,3 +30,4 @@ we're Cider fans here :p
  - Figure out a way to make IPC work on Firefox (or just scream @ Ducko)
  - Add theme choosing (`Emulation.setAutoDarkModeOverride`)
  - Add notifs
+ - Fix broken onboarding (or just scream @ Ducko even more than already)

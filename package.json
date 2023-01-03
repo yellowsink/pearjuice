@@ -1,6 +1,6 @@
 {
 	"dependencies": {
-		"@gluon-framework/gluon": "github:gluon-framework/gluon",
+		"@gluon-framework/gluon": "^0.8.0",
 		"unzipper": "^0.10.11"
 	},
 	"type": "module",

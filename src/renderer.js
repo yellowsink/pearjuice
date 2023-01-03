@@ -3,7 +3,7 @@ export default async () => {
 
 	let modalIsOpen = false;
 
-	pj.config = async function() {
+	pj.config = async function () {
 		if (modalIsOpen) return;
 
 		const container = pj.template(`
@@ -26,7 +26,6 @@ export default async () => {
 
 		const close = container.getElementsByClassName("pj-modal-close")[0];
 
-
 		close.style.setProperty("--mask", `url("${await pj.getIcon("close")}")`);
 
 		close.onclick = async () => {
@@ -36,19 +35,14 @@ export default async () => {
 			await flushSettings();
 
 			const newUrl = await pj.getUrl();
-			if (location.href.match(/.*\.com\/.+?(?=\/|$)/)[0] !== newUrl)
-				location = newUrl;
-		}
-	}
+			if (location.href.match(/.*\.com\/.+?(?=\/|$)/)[0] !== newUrl) location = newUrl;
+		};
+	};
 
 	// END utilities
 
 	addEventListener("load", async () => {
-		await Promise.all([
-			autoSignIn(),
-			accountContextMenu(),
-			autoRegion(),
-		]);
+		await Promise.all([autoSignIn(), accountContextMenu(), autoRegion(), contextMenus()]);
 	});
 
 	// START tweaks
@@ -64,12 +58,18 @@ export default async () => {
 	}
 
 	async function accountContextMenu() {
-		const cmCont = await pj.until(() => document.querySelector("amp-lcd .account-menu > .context-menu-container"));
-		const cmCont2 = await pj.until(() => document.querySelector("amp-chrome-player > .right-content .account-menu > .context-menu-container"));
+		const cmCont = await pj.until(() =>
+			document.querySelector("amp-lcd .account-menu > .context-menu-container")
+		);
+		const cmCont2 = await pj.until(() =>
+			document.querySelector(
+				"amp-chrome-player > .right-content .account-menu > .context-menu-container"
+			)
+		);
 
 		for (const cmContainer of [cmCont, cmCont2]) {
 			const mutObs = new MutationObserver((records) => {
-				for (record of records) {
+				for (const record of records) {
 					const menu = [...record.addedNodes].find((n) => n.classList.contains("context-menu"));
 					if (!menu) continue;
 
@@ -79,7 +79,7 @@ export default async () => {
 					newButton.dataset.testid = "pearjuice";
 
 					newButton.onclick = () => {
-						cmContainer.firstElementChild.click()
+						cmContainer.firstElementChild.click();
 						window.pj.config();
 					};
 
@@ -100,9 +100,46 @@ export default async () => {
 
 		const accountInfo = await mkInstance.me();
 
-		if (accountInfo.subscription.storefront !== await pj.cfgGet("region")) {
-			await pj.cfgSet({region: accountInfo.subscription.storefront});
+		if (accountInfo.subscription.storefront !== (await pj.cfgGet("region"))) {
+			await pj.cfgSet({ region: accountInfo.subscription.storefront });
 			location = await pj.getUrl();
 		}
+	}
+
+	async function contextMenus() {
+		const selector = [
+			".product-lockup__controls",
+			".powerswoosh__lockup-controls",
+			".songs-list-row",
+			".library-track",
+		].join(",");
+
+		function searchUp(el) {
+			if (!(el instanceof HTMLElement) || el.tagName === "main") return;
+			if (el.matches(selector)) return el;
+			return searchUp(el.parentElement);
+		}
+
+		const observer = new MutationObserver((records) => {
+			for (const record of records)
+				for (const ctxMenu of record.addedNodes) {
+					if (!(ctxMenu instanceof HTMLElement) || !ctxMenu.matches(".contextual-menu__trigger"))
+						continue;
+
+					const parent = searchUp(ctxMenu);
+					if (!parent) return;
+
+					parent.addEventListener("contextmenu", (e) => {
+						ctxMenu.focus({ preventScroll: true });
+						setTimeout(() => ctxMenu.click());
+						e.preventDefault();
+					});
+				}
+		});
+
+		observer.observe(await pj.until(() => document.getElementsByTagName("main")[0]), {
+			childList: true,
+			subtree: true,
+		});
 	}
 };

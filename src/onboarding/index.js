@@ -1,11 +1,10 @@
 import * as Gluon from "@gluon-framework/gluon";
-import { relative } from "../pathutils.js";
 import { set } from "../config.js";
 import injectCommon from "../common/index.js";
 
 export default () =>
 	new Promise(async (resolve) => {
-		const Window = await Gluon.open("file://" + relative(import.meta.url, "index.html"), {});
+		const Window = await Gluon.open("onboarding/index.html");
 
 		Window.ipc.on("onboarding complete", async () => {
 			await set({ onboarded: true });
@@ -13,8 +12,7 @@ export default () =>
 			resolve();
 		});
 
-		// #duckoplsfix
-		await new Promise(res => setTimeout(res, 1000));
+		await Window.page.loaded;
 
 		await injectCommon(Window);
 	});

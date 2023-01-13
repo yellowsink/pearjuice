@@ -9,9 +9,8 @@ import { Extract } from "unzipper";
 
 const tempDirectory = resolve(tmpdir(), "pearjuice");
 
-// TODO see if I can get this from Gluon
 export const getDataFolder = () =>
-	relative(import.meta.url, "../node_modules/@gluon-framework/gluon/chrome_data/");
+	relative(import.meta.url, "./gluon_data/chromium");
 
 export const checkWidevine = () => existsSync(resolve(getDataFolder(), "WidevineCdm"));
 

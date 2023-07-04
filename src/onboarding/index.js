@@ -4,7 +4,7 @@ import injectCommon from "../common/index.js";
 
 export default () =>
 	new Promise(async (resolve) => {
-		const Window = await Gluon.open("onboarding/index.html");
+		const Window = await Gluon.open("index.html");
 
 		Window.ipc.on("onboarding complete", async () => {
 			await set({ onboarded: true });

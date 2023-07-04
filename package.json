@@ -1,7 +1,8 @@
 {
 	"dependencies": {
-		"@gluon-framework/gluon": "^0.11.0",
-		"unzipper": "^0.10.11"
+		"@gluon-framework/gluon": "^0.14.0",
+		"@gluon-framework/widevine": "github:gluon-framework/widevine",
+		"unzipper": "^0.10.14"
 	},
 	"type": "module",
 	"scripts": {
